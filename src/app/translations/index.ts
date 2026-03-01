@@ -1,0 +1,202 @@
+export const translations = {
+  en: {
+    nav: {
+      company: "Our Company",
+      products: "Products",
+      contact: "Contact",
+      cta: "Talk to sales",
+    },
+    hero: {
+      headline1: "Building the",
+      highlight: "Modern Workforce",
+      headline2: "Technology",
+      sub: "Corenet is a technology holding company building and scaling platforms that power modern workforce solutions across the region and beyond.",
+      cta: "Talk to sales",
+    },
+    whatWeDo: {
+      title: "What we do?",
+      sub: "The strategic, technical, and operational backbone behind every product we build.",
+      cards: [
+        {
+          title: "Product Strategy & Innovation",
+          desc: "We define product vision, roadmap alignment, and market positioning to ensure every platform delivers measurable value.",
+        },
+        {
+          title: "Engineering & Technology Infrastructure",
+          desc: "Shared architecture, security frameworks, DevOps, and scalable cloud infrastructure across all portfolio products.",
+        },
+        {
+          title: "Governance & Compliance",
+          desc: "Structured oversight, risk management, and regulatory alignment to ensure long-term sustainability.",
+        },
+      ],
+    },
+    products: {
+      title: "Our Products",
+      sub: "A modern hiring platform built to scale with your team.",
+      desc: "Hires HR simplifies hiring with a modern platform for managing jobs, tracking candidates, and gaining real-time insights.",
+      cta: "Talk to sales",
+      tabs: [
+        { label: "AI Resume Screening",       headline: "Screen smarter, hire faster",        desc: "Let AI rank and shortlist candidates automatically — based on skills, experience, and role fit — so your team focuses only on the best matches." },
+        { label: "Job Management",            headline: "Post & manage roles",                desc: "Create and publish job listings in minutes across multiple channels. Control visibility, track applications, and manage every open role from one place." },
+        { label: "Candidate Pipeline",        headline: "Track every applicant",              desc: "Manage candidates through a visual pipeline. Review CVs, leave notes, assign scores, and move candidates forward — without the spreadsheets." },
+        { label: "Interview Scheduling",      headline: "Schedule interviews instantly",      desc: "Coordinate interviews across teams with automated scheduling, calendar sync, and reminders — eliminating back-and-forth emails entirely." },
+        { label: "Career Page",               headline: "Your branded careers hub",           desc: "Launch a fully branded careers page that reflects your employer brand — no code needed. Attract the right talent with a seamless application experience." },
+        { label: "Analytics & Dashboards",    headline: "Hiring insights that matter",        desc: "Understand time-to-hire, source quality, team performance, and cost-per-hire with live dashboards built for decision makers." },
+        { label: "Multi-tenant & Agency",     headline: "Built for agencies & enterprises",   desc: "Run multiple clients or business units from a single platform. Full data isolation, white-labelling, and role-based access for every team." },
+      ],
+    },
+    calculator: {
+      eyebrow: "ROI Calculator",
+      title: "How much will you save?",
+      sub: "Drag the slider to see your projected savings with Hires HR.",
+      volumeLabel: "Annual Hiring Volume",
+      hiresUnit: "hires / yr",
+      savingsLabel: "Projected Annual Savings",
+      forLabel: "for",
+      vsLabel: "vs. traditional hiring",
+      expertCta: "Talk to an Expert",
+      expertSub: "Need a precise estimate for your organisation?",
+      stats: ["Per hire", "ROI", "Payback"],
+      payback: "< 30 days",
+      disclaimer: "Estimates based on regional hiring data. Actual savings may vary.",
+    },
+    mission: {
+      scrollHint: "Scroll or click to explore",
+      missionSub: "What we strive to do every day",
+      visionSub: "Where we are headed",
+      content: {
+        mission: {
+          heading: "Our Mission",
+          body: "To build and scale exceptional technology platforms that empower businesses across the region with modern, efficient, and innovative workforce solutions—backed by world-class infrastructure, strategic vision, and operational excellence.",
+          items: [
+            { title: "Build",     desc: "Creating robust platforms from the ground up with precision and purpose." },
+            { title: "Empower",   desc: "Enabling businesses to reach their full potential through technology." },
+            { title: "Transform", desc: "Revolutionising how work gets done across every organisation." },
+          ],
+        },
+        vision: {
+          heading: "Our Vision",
+          body: "To become the region's most trusted technology ecosystem—where every business, regardless of size, can access world-class workforce tools that accelerate growth, unlock talent, and define the future of work.",
+          items: [
+            { title: "Lead",    desc: "Setting the benchmark for workforce technology across the region and beyond." },
+            { title: "Connect", desc: "Bridging businesses with the talent and tools they need to thrive." },
+            { title: "Scale",   desc: "Growing alongside our partners as the ecosystem evolves." },
+          ],
+        },
+      },
+    },
+    cta: {
+      title: "Ready to know more about Corenet?",
+      button: "Talk to sales",
+      rightTitle: "Building the workforce suite",
+      pills: ["Manage", "Hire", "Analyze"],
+    },
+    footer: {
+      desc: "Corenet is a technology holding company building and scaling platforms that power modern workforce solutions across the region and beyond.",
+      copy: "2026 Corenet — All rights reserved",
+    },
+  },
+
+  ar: {
+    nav: {
+      company: "شركتنا",
+      products: "المنتجات",
+      contact: "تواصل معنا",
+      cta: "تحدث مع المبيعات",
+    },
+    hero: {
+      headline1: "بناء",
+      highlight: "القوى العاملة الحديثة",
+      headline2: "بالتكنولوجيا",
+      sub: "كورنت شركة قابضة تقنية تبني وتطوّر منصات تدعم حلول القوى العاملة الحديثة في المنطقة وما بعدها.",
+      cta: "تحدث مع المبيعات",
+    },
+    whatWeDo: {
+      title: "ماذا نفعل؟",
+      sub: "الركيزة الاستراتيجية والتقنية والتشغيلية وراء كل منتج نبنيه.",
+      cards: [
+        {
+          title: "استراتيجية المنتج والابتكار",
+          desc: "نحدد رؤية المنتج ومحاذاة خارطة الطريق والتموضع في السوق لضمان تقديم كل منصة قيمة قابلة للقياس.",
+        },
+        {
+          title: "البنية التحتية للهندسة والتكنولوجيا",
+          desc: "بنية معمارية مشتركة وأطر أمنية وعمليات DevOps وبنية سحابية قابلة للتوسع عبر جميع المنتجات.",
+        },
+        {
+          title: "الحوكمة والامتثال",
+          desc: "رقابة منظمة وإدارة مخاطر ومواءمة تنظيمية لضمان الاستدامة على المدى البعيد.",
+        },
+      ],
+    },
+    products: {
+      title: "منتجاتنا",
+      sub: "منصة توظيف حديثة مبنية للتوسع مع فريقك.",
+      desc: "Hires HR تُبسّط التوظيف من خلال منصة حديثة لإدارة الوظائف وتتبع المرشحين والحصول على رؤى فورية.",
+      cta: "تحدث مع المبيعات",
+      tabs: [
+        { label: "فرز السير الذاتية بالذكاء الاصطناعي", headline: "فرز أذكى، توظيف أسرع",         desc: "دع الذكاء الاصطناعي يصنّف المرشحين ويختصر القائمة تلقائياً بناءً على المهارات والخبرة والملاءمة للدور، ليركّز فريقك على أفضل الكفاءات فقط." },
+        { label: "إدارة الوظائف",                        headline: "نشر وإدارة الأدوار",            desc: "أنشئ وانشر إعلانات الوظائف في دقائق عبر قنوات متعددة. تحكّم في الرؤية وتتبع الطلبات وأدر كل دور مفتوح من مكان واحد." },
+        { label: "خط سير المرشحين",                      headline: "تتبع كل متقدم",                 desc: "أدر المرشحين عبر خط سير مرئي. راجع السير الذاتية واترك ملاحظات وعيّن درجات وحرّك المرشحين للأمام — دون جداول البيانات." },
+        { label: "جدولة المقابلات",                       headline: "جدوِل المقابلات فوراً",         desc: "نسّق المقابلات عبر الفرق بجدولة آلية ومزامنة تقويم وتذكيرات — للتخلص التام من رسائل البريد الإلكتروني المتبادلة." },
+        { label: "صفحة الوظائف",                         headline: "مركز وظائفك بهويتك المؤسسية",   desc: "أطلق صفحة وظائف بهوية مؤسسية كاملة تعكس علامتك التجارية كصاحب عمل — بدون كود. اجذب المواهب المناسبة بتجربة تقديم سلسة." },
+        { label: "التحليلات ولوحات البيانات",             headline: "رؤى التوظيف المهمة",            desc: "افهم وقت التوظيف وجودة المصدر وأداء الفريق والتكلفة لكل توظيف عبر لوحات بيانات مباشرة مبنية لصانعي القرار." },
+        { label: "متعدد المستأجرين والوكالات",            headline: "مبني للوكالات والمؤسسات",        desc: "أدر عملاء متعددين أو وحدات أعمال مختلفة من منصة واحدة. عزل تام للبيانات ودعم العلامات البيضاء وصلاحيات مخصصة لكل فريق." },
+      ],
+    },
+    calculator: {
+      eyebrow: "حاسبة العائد على الاستثمار",
+      title: "كم ستوفر؟",
+      sub: "اسحب المنزلق لرؤية توفيراتك المتوقعة مع Hires HR.",
+      volumeLabel: "حجم التوظيف السنوي",
+      hiresUnit: "توظيف / سنة",
+      savingsLabel: "التوفير السنوي المتوقع",
+      forLabel: "لـ",
+      vsLabel: "مقابل التوظيف التقليدي",
+      expertCta: "تحدث مع خبير",
+      expertSub: "هل تحتاج إلى تقدير دقيق لمؤسستك؟",
+      stats: ["لكل توظيف", "العائد على الاستثمار", "فترة الاسترداد"],
+      payback: "< 30 يوم",
+      disclaimer: "تقديرات بناءً على بيانات التوظيف الإقليمية. قد تختلف المدخرات الفعلية.",
+    },
+    mission: {
+      scrollHint: "مرر أو انقر للاستكشاف",
+      missionSub: "ما نسعى لتحقيقه كل يوم",
+      visionSub: "إلى أين نتجه",
+      content: {
+        mission: {
+          heading: "مهمتنا",
+          body: "بناء وتوسيع منصات تقنية استثنائية تُمكّن الشركات في المنطقة من حلول القوى العاملة الحديثة والكفؤة والمبتكرة — مدعومة ببنية تحتية عالمية المستوى ورؤية استراتيجية وتميز تشغيلي.",
+          items: [
+            { title: "البناء",   desc: "إنشاء منصات قوية من الصفر بدقة وهدف." },
+            { title: "التمكين", desc: "تمكين الشركات من تحقيق إمكاناتها الكاملة من خلال التكنولوجيا." },
+            { title: "التحول",  desc: "إحداث ثورة في طريقة إنجاز العمل في كل مؤسسة." },
+          ],
+        },
+        vision: {
+          heading: "رؤيتنا",
+          body: "أن نصبح النظام البيئي التكنولوجي الأكثر موثوقية في المنطقة — حيث يمكن لكل شركة الوصول إلى أدوات القوى العاملة العالمية التي تسرّع النمو وتفتح المواهب وتحدد مستقبل العمل.",
+          items: [
+            { title: "القيادة",  desc: "وضع المعيار لتكنولوجيا القوى العاملة في المنطقة وما بعدها." },
+            { title: "التواصل", desc: "ربط الشركات بالمواهب والأدوات التي تحتاجها للازدهار." },
+            { title: "التوسع",  desc: "النمو جنباً إلى جنب مع شركائنا مع تطور النظام البيئي." },
+          ],
+        },
+      },
+    },
+    cta: {
+      title: "هل أنت مستعد لمعرفة المزيد عن كورنت؟",
+      button: "تحدث مع المبيعات",
+      rightTitle: "بناء حزمة القوى العاملة",
+      pills: ["إدارة", "توظيف", "تحليل"],
+    },
+    footer: {
+      desc: "كورنت شركة قابضة تقنية تبني وتطوّر منصات تدعم حلول القوى العاملة الحديثة في المنطقة وما بعدها.",
+      copy: "2026 كورنت — جميع الحقوق محفوظة",
+    },
+  },
+};
+
+export type Lang = "en" | "ar";
+export type T = typeof translations.en;

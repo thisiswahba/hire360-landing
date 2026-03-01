@@ -49,6 +49,7 @@
   /* Fonts – use Next.js Inter variable when available */
   --font-sans: var(--font-inter, "Inter"), ui-sans-serif, system-ui, sans-serif;
   --font-stolzl: "Stolzl", var(--font-inter, "Inter"), ui-sans-serif, sans-serif;
+  /* --font-arabic is injected by Next.js via ibmPlexArabic.variable on <html> */
 
   /* Colors */
   --color-navy: #02022c;
@@ -208,4 +209,14 @@ body {
   opacity: 0;
   border: none;
   background: transparent;
+}
+
+/* Arabic / RTL — IBM Plex Sans Arabic */
+:root[dir="rtl"],
+:root[dir="rtl"] body {
+  font-family: var(--font-arabic, "IBM Plex Sans Arabic"), ui-sans-serif, sans-serif;
+}
+:root[dir="rtl"] .font-stolzl {
+  font-family: var(--font-arabic, "IBM Plex Sans Arabic"), ui-sans-serif, sans-serif;
+  letter-spacing: 0;
 }

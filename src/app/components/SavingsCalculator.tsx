@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 const MIN = 50;
 const MAX = 5000;
@@ -11,6 +12,8 @@ function formatSR(n: number) {
 }
 
 export default function SavingsCalculator() {
+  const { t } = useLanguage();
+  const c = t.calculator;
   const [hires, setHires] = useState(750);
 
   const pct = ((hires - MIN) / (MAX - MIN)) * 100;
@@ -23,14 +26,10 @@ export default function SavingsCalculator() {
         {/* Header */}
         <header className="text-center max-w-[560px] mx-auto mb-14">
           <p className="font-stolzl text-caption font-medium text-blue-brand uppercase tracking-widest mb-3">
-            ROI Calculator
+            {c.eyebrow}
           </p>
-          <h2 className="font-stolzl text-h1 font-medium text-navy">
-            How much will you save?
-          </h2>
-          <p className="font-stolzl text-body-sm text-text-secondary mt-3">
-            Drag the slider to see your projected savings with Hires HR.
-          </p>
+          <h2 className="font-stolzl text-h1 font-medium text-navy">{c.title}</h2>
+          <p className="font-stolzl text-body-sm text-text-secondary mt-3">{c.sub}</p>
         </header>
 
         {/* Dark card */}
@@ -42,7 +41,7 @@ export default function SavingsCalculator() {
 
               <div>
                 <p className="font-stolzl text-caption text-hero-muted uppercase tracking-widest mb-3">
-                  Annual Hiring Volume
+                  {c.volumeLabel}
                 </p>
                 <div className="flex items-end gap-3">
                   <span
@@ -51,9 +50,7 @@ export default function SavingsCalculator() {
                   >
                     {hires.toLocaleString()}
                   </span>
-                  <span className="font-stolzl text-h3 text-hero-muted mb-1">
-                    hires / yr
-                  </span>
+                  <span className="font-stolzl text-h3 text-hero-muted mb-1">{c.hiresUnit}</span>
                 </div>
               </div>
 
@@ -87,11 +84,9 @@ export default function SavingsCalculator() {
 
               {/* CTA */}
               <div className="pt-2 border-t border-white/[0.07]">
-                <p className="font-stolzl text-caption text-hero-muted mb-4">
-                  Need a precise estimate for your organisation?
-                </p>
+                <p className="font-stolzl text-caption text-hero-muted mb-4">{c.expertSub}</p>
                 <button className="flex items-center gap-2 bg-white text-navy font-stolzl text-body-sm font-medium px-5 py-3 rounded-[var(--radius-button)] hover:bg-blue-brand hover:text-white transition-colors">
-                  Talk to an Expert
+                  {c.expertCta}
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                     <path d="M2.917 7h8.166M7.583 4l3.5 3-3.5 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -105,7 +100,7 @@ export default function SavingsCalculator() {
               {/* Big number */}
               <div>
                 <p className="font-stolzl text-caption text-hero-muted uppercase tracking-widest mb-3">
-                  Projected Annual Savings
+                  {c.savingsLabel}
                 </p>
                 <p
                   className="font-stolzl font-bold text-white tabular-nums"
@@ -114,20 +109,18 @@ export default function SavingsCalculator() {
                   {formatSR(totalSavings)}
                 </p>
                 <p className="font-stolzl text-caption text-hero-muted mt-2">
-                  for{" "}
-                  <span className="text-white font-medium">
-                    {hires.toLocaleString()} hires
-                  </span>{" "}
-                  vs. traditional hiring
+                  {c.forLabel}{" "}
+                  <span className="text-white font-medium">{hires.toLocaleString()} {c.hiresUnit}</span>{" "}
+                  {c.vsLabel}
                 </p>
               </div>
 
               {/* Three stats */}
               <div className="grid grid-cols-3 gap-3 pt-2 border-t border-white/[0.07]">
                 {[
-                  { label: "Per hire", value: formatSR(SAVINGS_PER_HIRE) },
-                  { label: "ROI", value: `${Math.round((totalSavings / (hires * 1699)) * 100)}%` },
-                  { label: "Payback", value: "< 30 days" },
+                  { label: c.stats[0], value: formatSR(SAVINGS_PER_HIRE) },
+                  { label: c.stats[1], value: `${Math.round((totalSavings / (hires * 1699)) * 100)}%` },
+                  { label: c.stats[2], value: c.payback },
                 ].map((s) => (
                   <div key={s.label} className="flex flex-col gap-1">
                     <span className="font-stolzl text-caption text-hero-muted">
@@ -144,9 +137,7 @@ export default function SavingsCalculator() {
           </div>
         </div>
 
-        <p className="text-center font-stolzl text-caption text-text-muted mt-5">
-          Estimates based on regional hiring data. Actual savings may vary.
-        </p>
+        <p className="text-center font-stolzl text-caption text-text-muted mt-5">{c.disclaimer}</p>
       </div>
     </section>
   );

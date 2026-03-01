@@ -2,63 +2,22 @@
 
 import Image from "next/image";
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 const TABS = ["mission", "vision"] as const;
 type Tab = (typeof TABS)[number];
 
-const CONTENT: Record<
-  Tab,
-  {
-    heading: string;
-    body: string;
-    items: { icon: string; title: string; desc: string }[];
-  }
-> = {
-  mission: {
-    heading: "Our Mission",
-    body: "To build and scale exceptional technology platforms that empower businesses across the region with modern, efficient, and innovative workforce solutions—backed by world-class infrastructure, strategic vision, and operational excellence.",
-    items: [
-      {
-        icon: "/images/icon-build.svg",
-        title: "Build",
-        desc: "Creating robust platforms from the ground up with precision and purpose.",
-      },
-      {
-        icon: "/images/icon-empower.svg",
-        title: "Empower",
-        desc: "Enabling businesses to reach their full potential through technology.",
-      },
-      {
-        icon: "/images/icon-transform.svg",
-        title: "Transform",
-        desc: "Revolutionising how work gets done across every organisation.",
-      },
-    ],
-  },
-  vision: {
-    heading: "Our Vision",
-    body: "To become the region's most trusted technology ecosystem—where every business, regardless of size, can access world-class workforce tools that accelerate growth, unlock talent, and define the future of work.",
-    items: [
-      {
-        icon: "/images/icon-build.svg",
-        title: "Lead",
-        desc: "Setting the benchmark for workforce technology across the region and beyond.",
-      },
-      {
-        icon: "/images/icon-empower.svg",
-        title: "Connect",
-        desc: "Bridging businesses with the talent and tools they need to thrive.",
-      },
-      {
-        icon: "/images/icon-transform.svg",
-        title: "Scale",
-        desc: "Growing alongside our partners as the ecosystem evolves.",
-      },
-    ],
-  },
+const ICONS = {
+  mission: ["/images/icon-build.svg", "/images/icon-empower.svg", "/images/icon-transform.svg"],
+  vision:  ["/images/icon-build.svg", "/images/icon-empower.svg", "/images/icon-transform.svg"],
 };
 
 export default function MissionVision() {
+  const { t } = useLanguage();
+  const CONTENT = {
+    mission: { ...t.mission.content.mission, items: t.mission.content.mission.items.map((item, i) => ({ ...item, icon: ICONS.mission[i] })) },
+    vision:  { ...t.mission.content.vision,  items: t.mission.content.vision.items.map((item, i) => ({ ...item, icon: ICONS.vision[i] })) },
+  };
   const [active, setActive] = useState<Tab>("mission");
   const [animating, setAnimating] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -147,9 +106,7 @@ export default function MissionVision() {
                   </span>
                   {isActive && (
                     <span className="block font-stolzl text-caption text-text-secondary mt-1">
-                      {tab === "mission"
-                        ? "What we strive to do every day"
-                        : "Where we are headed"}
+                      {tab === "mission" ? t.mission.missionSub : t.mission.visionSub}
                     </span>
                   )}
                 </button>
@@ -167,7 +124,7 @@ export default function MissionVision() {
                   strokeLinejoin="round"
                 />
               </svg>
-              Scroll or click to explore
+              {t.mission.scrollHint}
             </p>
           </div>
 

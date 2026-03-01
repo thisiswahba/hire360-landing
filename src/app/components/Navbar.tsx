@@ -3,11 +3,13 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -46,14 +48,26 @@ export default function Navbar() {
       />
 
       <div className="flex items-center gap-12 lg:gap-16 font-stolzl text-body-sm text-navy">
-        <a href="#about" className="hover:opacity-70 transition-opacity">Our Company</a>
-        <a href="#products" className="hover:opacity-70 transition-opacity">Products</a>
-        <a href="#contact" className="hover:opacity-70 transition-opacity">Contact</a>
+        <a href="#about" className="hover:opacity-70 transition-opacity">{t.nav.company}</a>
+        <a href="#products" className="hover:opacity-70 transition-opacity">{t.nav.products}</a>
+        <a href="#contact" className="hover:opacity-70 transition-opacity">{t.nav.contact}</a>
       </div>
 
-      <button className="bg-blue-brand text-white font-stolzl font-medium text-caption px-5 py-2.5 rounded-[var(--radius-button)] hover:opacity-90 transition-opacity">
-        Talk to sales
-      </button>
+      <div className="flex items-center gap-3">
+        {/* Language toggle */}
+        <button
+          onClick={() => setLang(lang === "en" ? "ar" : "en")}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] border border-[#e0e0e0] font-stolzl text-caption text-navy hover:bg-gray-50 transition-colors"
+          aria-label="Switch language"
+        >
+          <span className="text-base leading-none">{lang === "en" ? "🇸🇦" : "🇬🇧"}</span>
+          <span className="font-medium">{lang === "en" ? "العربية" : "English"}</span>
+        </button>
+
+        <button className="bg-blue-brand text-white font-stolzl font-medium text-caption px-5 py-2.5 rounded-[var(--radius-button)] hover:opacity-90 transition-opacity">
+          {t.nav.cta}
+        </button>
+      </div>
     </motion.nav>
   );
 }
