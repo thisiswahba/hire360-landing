@@ -45,39 +45,53 @@ export default function Home() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease }}
-        className="relative w-[98%] mx-auto mt-[10px] h-[867px] bg-navy-dark rounded-[50px] overflow-hidden"
+        className="relative w-[98%] mx-auto mt-[10px] min-h-[580px] sm:min-h-[640px] lg:h-[867px] bg-navy-dark rounded-[32px] sm:rounded-[40px] lg:rounded-[50px] overflow-hidden flex flex-col lg:block"
       >
         {/* WebGL animated background */}
         <HeroBackground />
 
-        {/* Gradient strips — sit above WebGL */}
-        <div className="absolute inset-0 pointer-events-none">
+        {/* Mobile/tablet: portrait as faded background */}
+        <div className="lg:hidden absolute inset-0 pointer-events-none">
+          <Image
+            src="/images/businessman.png"
+            alt=""
+            fill
+            className="object-cover object-top opacity-20"
+            style={{ objectPosition: isRTL ? "left top" : "right top" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-dark/50 via-transparent to-navy-dark/80" />
+        </div>
+
+        {/* Desktop: gradient strips */}
+        <div className="hidden lg:block absolute inset-0 pointer-events-none">
           <div className="absolute top-0 w-[28%] h-full opacity-90" style={{ [isRTL ? "left" : "right"]: 0, background: "linear-gradient(180deg, rgba(58, 184, 116, 0.35) 0%, rgba(15, 15, 155, 0.12) 50%, rgba(2, 2, 39, 0.6) 100%)" }} />
           <div className="absolute top-0 w-[12%] h-full opacity-70" style={{ [isRTL ? "left" : "right"]: "28%", background: "linear-gradient(180deg, rgba(45, 212, 191, 0.25) 0%, rgba(15, 23, 42, 0.4) 100%)" }} />
           <div className="absolute top-0 w-[8%] h-full opacity-50" style={{ [isRTL ? "left" : "right"]: "38%", background: "linear-gradient(180deg, rgba(59, 130, 246, 0.2) 0%, transparent 100%)" }} />
         </div>
 
-        {/* Portrait — static, no entrance animation */}
-        <div className="absolute top-[50px] w-[654px] h-[870px]" style={{ [isRTL ? "left" : "right"]: 0 }}>
+        {/* Desktop: portrait */}
+        <div className="hidden lg:block absolute top-[50px] w-[654px] h-[870px]" style={{ [isRTL ? "left" : "right"]: 0 }}>
           <Image src="/images/businessman.png" alt="Professional portrait" fill className="object-cover object-top" />
         </div>
 
-        {/* Gradient accent line — wipe reveal */}
+        {/* Desktop: accent line */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.9, ease, delay: 0.4 }}
           style={{ originX: isRTL ? 1 : 0, [isRTL ? "right" : "left"]: 93 }}
-          className="absolute top-[350px] w-[630px] h-[60px] bg-gradient-to-r from-[#405af0] to-[#020230]"
+          className="hidden lg:block absolute top-[350px] w-[630px] h-[60px] bg-gradient-to-r from-[#405af0] to-[#020230]"
         />
 
-        {/* Hero content — staggered */}
-        <div className="absolute top-1/2 -translate-y-1/2 mt-[42px] max-w-[675px] flex flex-col gap-6" style={{ [isRTL ? "right" : "left"]: 92, textAlign: isRTL ? "right" : "left" }}>
+        {/* Hero content */}
+        <div
+          className={`relative z-10 flex flex-col gap-5 sm:gap-6 px-6 sm:px-10 pt-28 sm:pt-32 pb-14 items-center text-center lg:absolute lg:px-0 lg:pt-0 lg:pb-0 lg:top-1/2 lg:-translate-y-1/2 lg:mt-[42px] lg:max-w-[675px] ${isRTL ? "lg:right-[92px] lg:items-end lg:text-right" : "lg:left-[92px] lg:items-start lg:text-left"}`}
+        >
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease, delay: 0.2 }}
-            className="font-stolzl text-display font-bold text-white"
+            className="font-stolzl text-h1 sm:text-display font-bold text-white"
           >
             {t.hero.headline1}{" "}
             <span className="bg-blue-brand px-1.5 pb-1 pt-0.5 rounded-[6px] inline-block">
@@ -90,7 +104,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease, delay: 0.4 }}
-            className="font-stolzl text-body-lg text-hero-muted max-w-[652px]"
+            className="font-stolzl text-body sm:text-body-lg text-hero-muted max-w-[520px] lg:max-w-[652px]"
           >
             {t.hero.sub}
           </motion.p>
@@ -166,10 +180,33 @@ export default function Home() {
       <motion.section
         {...fadeUp(0)}
         id="contact"
-        className="relative z-10 w-full pt-10 pb-0 -mb-[205px]"
+        className="relative z-10 w-full pt-10 pb-0 lg:-mb-[205px]"
       >
         <div className="w-full max-w-[min(1287px,calc(100%-40px))] mx-auto">
-          <div className="relative w-full h-[410px] bg-[#3ab874] rounded-[40px] overflow-hidden">
+
+          {/* ── Mobile / Tablet CTA (hidden on lg+) ── */}
+          <div className="lg:hidden bg-[#3ab874] rounded-[28px] sm:rounded-[32px] p-7 sm:p-10 flex flex-col gap-6">
+            <h2 className="font-stolzl text-[32px] sm:text-[40px] font-bold text-white leading-[1.3] tracking-[-1.2px]"
+              style={{ textAlign: isRTL ? "right" : "left" }}>
+              {t.cta.title}
+            </h2>
+            <div className="flex flex-wrap gap-2" style={{ justifyContent: isRTL ? "flex-end" : "flex-start" }}>
+              {t.cta.pills.map((pill) => (
+                <div key={pill} className="flex items-center gap-2 bg-[#85d3a9] rounded-[30px] px-4 py-2">
+                  <Image src="/images/check.svg" alt="" width={16} height={16} />
+                  <span className="font-stolzl text-body-sm text-white font-medium">{pill}</span>
+                </div>
+              ))}
+            </div>
+            <div style={{ textAlign: isRTL ? "right" : "left" }}>
+              <button className="bg-white text-text-secondary font-stolzl font-medium text-body-sm px-5 py-3 rounded-[var(--radius-button)] border border-border-subtle hover:bg-gray-50 transition-colors">
+                {t.cta.button}
+              </button>
+            </div>
+          </div>
+
+          {/* ── Desktop CTA (hidden on mobile/tablet) ── */}
+          <div className="hidden lg:block relative w-full h-[410px] bg-[#3ab874] rounded-[40px] overflow-hidden">
 
             {/* Headline + CTA button */}
             <motion.div
@@ -215,7 +252,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Feature pills — staggered slide in */}
+            {/* Feature pills */}
             {(
               [
                 { label: t.cta.pills[0], top: 162, width: 176, delay: 0.25 },
@@ -247,7 +284,7 @@ export default function Home() {
       </motion.section>
 
       {/* ========== FOOTER ========== */}
-      <footer className="relative w-full bg-navy-deep rounded-[40px] overflow-hidden">
+      <footer className="relative w-full bg-navy-deep rounded-[28px] sm:rounded-[40px] overflow-hidden">
         <div className="absolute inset-0">
           <Image src="/images/hero-bg.png" alt="" fill className="object-cover opacity-30" />
         </div>
@@ -257,7 +294,7 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease }}
-          className="relative max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 pt-[260px] pb-16 sm:pb-20"
+          className="relative max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 pt-14 sm:pt-16 lg:pt-[260px] pb-12 sm:pb-16 lg:pb-20"
         >
           <div className="mb-10 sm:mb-12">
             <Image src="/images/logo.png" alt="Corenet" width={134} height={78} className="object-contain brightness-0 invert" />
