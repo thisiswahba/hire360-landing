@@ -94,6 +94,7 @@ export const translations = {
     },
     footer: {
       desc: "Corenet is a technology holding company building and scaling platforms that power modern workforce solutions across the region and beyond.",
+      location: "Riyadh, Saudi Arabia",
       copy: "2026 Corenet — All rights reserved",
     },
   },
@@ -193,6 +194,7 @@ export const translations = {
     },
     footer: {
       desc: "كورنت شركة قابضة تقنية تبني وتطوّر منصات تدعم حلول القوى العاملة الحديثة في المنطقة وما بعدها.",
+      location: "الرياض، المملكة العربية السعودية",
       copy: "2026 كورنت — جميع الحقوق محفوظة",
     },
   },

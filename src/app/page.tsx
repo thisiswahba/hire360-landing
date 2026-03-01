@@ -85,7 +85,7 @@ export default function Home() {
 
         {/* Hero content */}
         <div
-          className={`relative z-10 flex flex-col gap-5 sm:gap-6 px-6 sm:px-10 pt-28 sm:pt-32 pb-14 items-center text-center lg:absolute lg:px-0 lg:pt-0 lg:pb-0 lg:top-1/2 lg:-translate-y-1/2 lg:mt-[42px] lg:max-w-[675px] ${isRTL ? "lg:right-[92px] lg:items-end lg:text-right" : "lg:left-[92px] lg:items-start lg:text-left"}`}
+          className={`relative z-10 flex flex-col gap-5 sm:gap-6 px-6 sm:px-10 pt-28 sm:pt-32 pb-14 items-center text-center lg:absolute lg:px-0 lg:pt-0 lg:pb-0 lg:top-1/2 lg:-translate-y-1/2 lg:mt-[42px] lg:max-w-[675px] ${isRTL ? "lg:right-[92px] lg:items-start lg:text-right" : "lg:left-[92px] lg:items-start lg:text-left"}`}
         >
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
@@ -300,9 +300,17 @@ export default function Home() {
             <Image src="/images/logo.png" alt="Corenet" width={134} height={78} className="object-contain brightness-0 invert" />
           </div>
 
-          <p className="font-stolzl text-body text-white/95 max-w-[465px] mb-12 sm:mb-14">
+          <p className="font-stolzl text-body text-white/95 max-w-[465px] mb-6">
             {t.footer.desc}
           </p>
+
+          <div className="flex items-center gap-2 mb-12 sm:mb-14">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0 opacity-60">
+              <path d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.75 4.5 8.5 4.5 8.5s4.5-4.75 4.5-8.5c0-2.485-2.015-4.5-4.5-4.5Z" stroke="white" strokeWidth="1.3" strokeLinejoin="round"/>
+              <circle cx="8" cy="6" r="1.5" stroke="white" strokeWidth="1.3"/>
+            </svg>
+            <span className="font-stolzl text-caption text-white/60">{t.footer.location}</span>
+          </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             <p className="text-white font-medium text-caption">{t.footer.copy}</p>
