@@ -51,22 +51,26 @@
   --font-stolzl: "Stolzl", var(--font-inter, "Inter"), ui-sans-serif, sans-serif;
   /* --font-arabic is injected by Next.js via ibmPlexArabic.variable on <html> */
 
-  /* Colors */
-  --color-navy: #02022c;
-  --color-navy-dark: #020227;
-  --color-navy-deep: #050535;
-  --color-blue-brand: #335cff;
+  /* Colors — every.io inspired dark palette */
+  --color-navy: #010214;            /* near-black primary (replaces old navy) */
+  --color-navy-dark: #010214;       /* hero/dark sections */
+  --color-navy-deep: #010214;       /* footer */
+  --color-card-bg: #090b1e;         /* card surfaces */
+  --color-card-hover: #0d1030;      /* card hover state */
+  --color-blue-brand: #335cff;      /* brand blue — unchanged */
   --color-blue-accent: #333ed8;
   --color-blue-product: #4154f2;
-  --color-green-cta: #3ab874;
+  --color-green-cta: #3ab874;       /* CTA green — unchanged */
   --color-green-light: #85d3a9;
-  --color-text-primary: #02022c;
-  --color-text-secondary: #5c5c5c;
-  --color-text-muted: rgba(92, 92, 92, 0.73);
-  --color-bg-light: #fafbfc;
-  --color-hero-muted: #c3c3ca;
-  --color-border-soft: #e0e0e0;
-  --color-border-subtle: #ebebeb;
+  --color-beige: #d4c5a9;           /* warm beige accent — every.io signature */
+  --color-beige-dim: rgba(212,197,169,0.5);
+  --color-text-primary: #f0ede6;    /* warm off-white — every.io white-100 */
+  --color-text-secondary: rgba(240,237,230,0.65);
+  --color-text-muted: rgba(240,237,230,0.4);
+  --color-bg-light: #090b1e;        /* "light" section bg = dark card */
+  --color-hero-muted: rgba(240,237,230,0.55);
+  --color-border-soft: rgba(255,255,255,0.08);
+  --color-border-subtle: rgba(255,255,255,0.05);
 
   /* Typography scale – size / line-height / letter-spacing */
   --text-display: 61px;
@@ -120,7 +124,7 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: #010214;
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
@@ -209,6 +213,18 @@ body {
   opacity: 0;
   border: none;
   background: transparent;
+}
+
+/* ── Marquee animation ── */
+@keyframes marquee {
+  from { transform: translateX(0) }
+  to   { transform: translateX(-50%) }
+}
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 /* Arabic / RTL — IBM Plex Sans Arabic */

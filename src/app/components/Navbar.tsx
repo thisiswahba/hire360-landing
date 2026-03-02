@@ -13,13 +13,12 @@ export default function Navbar() {
   const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu on scroll
   useEffect(() => {
     if (menuOpen) setMenuOpen(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,12 +44,14 @@ export default function Navbar() {
           paddingLeft: 20,
           paddingRight: 20,
           borderRadius: scrolled ? 14 : 18,
-          background: scrolled ? "rgba(255,255,255,0.95)" : "#ffffff",
-          backdropFilter: scrolled ? "blur(12px)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(12px)" : "none",
+          background: scrolled
+            ? "rgba(1,2,20,0.88)"
+            : "rgba(1,2,20,0.35)",
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
           boxShadow: scrolled
-            ? "0 8px 32px rgba(2,2,44,0.12), 0 0 0 1px rgba(0,0,0,0.07)"
-            : "0 6px 24px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.08)",
+            ? "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.07)"
+            : "0 0 0 1px rgba(255,255,255,0.06)",
         }}
       >
         {/* Logo */}
@@ -59,13 +60,17 @@ export default function Navbar() {
           alt="Corenet Logo"
           width={scrolled ? 76 : 88}
           height={scrolled ? 42 : 48}
-          className="object-contain transition-all duration-300 shrink-0"
+          className="object-contain transition-all duration-300 shrink-0 brightness-0 invert"
         />
 
         {/* Desktop nav links */}
-        <div className="hidden lg:flex items-center gap-10 xl:gap-16 font-stolzl text-body-sm text-navy">
+        <div className="hidden lg:flex items-center gap-10 xl:gap-16 font-stolzl text-body-sm text-white/80">
           {links.map(({ href, label }) => (
-            <a key={href} href={href} className="hover:opacity-70 transition-opacity whitespace-nowrap">
+            <a
+              key={href}
+              href={href}
+              className="hover:text-white transition-colors whitespace-nowrap"
+            >
               {label}
             </a>
           ))}
@@ -75,7 +80,7 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={() => setLang(lang === "en" ? "ar" : "en")}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] border border-[#e0e0e0] font-stolzl text-caption text-navy hover:bg-gray-50 transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] border border-white/15 font-stolzl text-caption text-white/70 hover:bg-white/10 hover:text-white transition-colors"
             aria-label="Switch language"
           >
             <span className="text-base leading-none">{lang === "en" ? "🇸🇦" : "🇬🇧"}</span>
@@ -90,7 +95,7 @@ export default function Navbar() {
         <div className="flex lg:hidden items-center gap-2">
           <button
             onClick={() => setLang(lang === "en" ? "ar" : "en")}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-[8px] border border-[#e0e0e0] font-stolzl text-navy hover:bg-gray-50 transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-[8px] border border-white/15 font-stolzl text-white/70 hover:bg-white/10 transition-colors"
             aria-label="Switch language"
           >
             <span className="text-sm leading-none">{lang === "en" ? "🇸🇦" : "🇬🇧"}</span>
@@ -100,22 +105,22 @@ export default function Navbar() {
           <button
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
-            className="w-9 h-9 flex flex-col items-center justify-center gap-[5px] rounded-[8px] hover:bg-gray-50 transition-colors"
+            className="w-9 h-9 flex flex-col items-center justify-center gap-[5px] rounded-[8px] hover:bg-white/10 transition-colors"
           >
             <motion.span
               animate={menuOpen ? { rotate: 45, y: 6.5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.2 }}
-              className="block w-[18px] h-[1.5px] bg-navy origin-center"
+              className="block w-[18px] h-[1.5px] bg-white origin-center"
             />
             <motion.span
               animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.2 }}
-              className="block w-[18px] h-[1.5px] bg-navy"
+              className="block w-[18px] h-[1.5px] bg-white"
             />
             <motion.span
               animate={menuOpen ? { rotate: -45, y: -6.5 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.2 }}
-              className="block w-[18px] h-[1.5px] bg-navy origin-center"
+              className="block w-[18px] h-[1.5px] bg-white origin-center"
             />
           </button>
         </div>
@@ -131,7 +136,7 @@ export default function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.18 }}
-              className="fixed inset-0 z-30 lg:hidden bg-black/20"
+              className="fixed inset-0 z-30 lg:hidden bg-black/40"
               onClick={() => setMenuOpen(false)}
             />
 
@@ -147,10 +152,10 @@ export default function Navbar() {
               <div
                 className="rounded-[20px] overflow-hidden"
                 style={{
-                  background: "rgba(255,255,255,0.98)",
+                  background: "rgba(9,11,30,0.97)",
                   backdropFilter: "blur(20px)",
                   WebkitBackdropFilter: "blur(20px)",
-                  boxShadow: "0 12px 48px rgba(2,2,44,0.16), 0 0 0 1px rgba(0,0,0,0.07)",
+                  boxShadow: "0 12px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.07)",
                 }}
               >
                 {/* Nav links */}
@@ -160,7 +165,7 @@ export default function Navbar() {
                       key={href}
                       href={href}
                       onClick={() => setMenuOpen(false)}
-                      className="font-stolzl text-body-sm font-medium text-navy px-4 py-3.5 rounded-[12px] hover:bg-gray-50 transition-colors block"
+                      className="font-stolzl text-body-sm font-medium text-white/80 px-4 py-3.5 rounded-[12px] hover:bg-white/08 hover:text-white transition-colors block"
                       style={{ textAlign: lang === "ar" ? "right" : "left" }}
                     >
                       {label}
@@ -168,7 +173,7 @@ export default function Navbar() {
                   ))}
                 </div>
 
-                <div className="h-px bg-[#ebebeb] mx-3" />
+                <div className="h-px bg-white/08 mx-3" />
 
                 {/* CTA */}
                 <div className="p-3">

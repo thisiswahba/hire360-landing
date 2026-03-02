@@ -20,20 +20,32 @@ export default function SavingsCalculator() {
   const totalSavings = hires * SAVINGS_PER_HIRE;
 
   return (
-    <section className="relative w-full bg-white py-20 lg:py-28">
-      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
+    <section className="relative w-full py-20 lg:py-28" style={{ background: "#010214" }}>
+      {/* Radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(51,92,255,0.06) 0%, transparent 70%)" }}
+      />
+      <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 relative">
 
         {/* Header */}
         <header className="text-center max-w-[560px] mx-auto mb-14">
-          <p className="font-stolzl text-caption font-medium text-blue-brand uppercase tracking-widest mb-3">
+          <p className="font-stolzl text-caption font-medium uppercase tracking-widest mb-3" style={{ color: "#d4c5a9" }}>
             {c.eyebrow}
           </p>
-          <h2 className="font-stolzl text-h1 font-medium text-navy">{c.title}</h2>
-          <p className="font-stolzl text-body-sm text-text-secondary mt-3">{c.sub}</p>
+          <h2 className="font-stolzl text-h1 font-medium text-white">{c.title}</h2>
+          <p className="font-stolzl text-body-sm mt-3" style={{ color: "rgba(240,237,230,0.55)" }}>{c.sub}</p>
         </header>
 
         {/* Dark card */}
-        <div className="max-w-[1100px] mx-auto bg-navy-deep rounded-[32px] shadow-[0_24px_64px_rgba(2,2,44,0.18)] overflow-hidden">
+        <div
+          className="max-w-[1100px] mx-auto rounded-[32px] overflow-hidden"
+          style={{
+            background: "rgba(9,11,30,0.7)",
+            border: "1px solid rgba(255,255,255,0.07)",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.4)",
+          }}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2">
 
             {/* ── Left: slider ── */}
@@ -137,7 +149,7 @@ export default function SavingsCalculator() {
           </div>
         </div>
 
-        <p className="text-center font-stolzl text-caption text-text-muted mt-5">{c.disclaimer}</p>
+        <p className="text-center font-stolzl text-caption mt-5" style={{ color: "rgba(240,237,230,0.3)" }}>{c.disclaimer}</p>
       </div>
     </section>
   );
