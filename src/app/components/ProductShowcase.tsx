@@ -152,8 +152,14 @@ export default function ProductShowcase() {
   return (
     <section
       id="products"
-      className="relative w-full bg-gradient-to-b from-navy-deep from-[40%] to-[#0f0f9b] rounded-bl-[60px] rounded-br-[60px] pt-14 pb-16 sm:pt-16 sm:pb-20 overflow-hidden"
+      className="relative w-full rounded-bl-[60px] rounded-br-[60px] pt-14 pb-16 sm:pt-16 sm:pb-20 overflow-hidden"
+      style={{ background: "#010214" }}
     >
+      {/* Radial glow — every.io style */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(51,92,255,0.09) 0%, transparent 70%)" }}
+      />
       <div className="max-w-[1440px] mx-auto px-6 sm:px-8 lg:px-16 xl:px-20">
 
         {/* Section header */}
